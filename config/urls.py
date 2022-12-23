@@ -1,6 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from pybo import views
 
 
 # urls.py 파일은 페이지 요청이 발생하면 가장 먼저 호출되는 파일
@@ -13,4 +14,6 @@ urlpatterns = [
     path('pybo/', include('pybo.urls')),
     # views.index는 views.py 파일의 index 함수를 의미한다
     # URL을 정규화하는 장고의 기능 URL 매핑시 항상 끝에 / 붙이기
+    path('common/',include('common.urls')),
+    path('', views.index, name='index'), # '/' 에 해당되는 path
 ]
